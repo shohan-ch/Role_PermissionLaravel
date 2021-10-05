@@ -53,12 +53,30 @@
           </p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('module.create') }}" class="nav-link">
+          <i class="nav-icon fa fa-list-alt"></i>
+          <p>
+            Modules
+
+          </p>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a href="{{ route('role.create') }}" class="nav-link">
           <i class="nav-icon fa fa-list-alt"></i>
           <p>
             Roles
+
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('user.create') }}" class="nav-link">
+          <i class="nav-icon fa fa-list-alt"></i>
+          <p>
+            Users
 
           </p>
         </a>

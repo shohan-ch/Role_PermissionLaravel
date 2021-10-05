@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        return view('admin.auth.login');
     }
 
     /**
@@ -26,13 +26,39 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+
+
+
+    // public function store(Request $request)
+    // {
+    //     // $password = bcrypt($request->password);
+    //     // return $request->password;
+    //     $user   = DB::table('users')
+    //         ->where('email', $request->email)
+    //         ->where('password', $request->password)
+    //         ->get();
+    //     // $user = User::where([
+    //     //     ['email', $request->email],
+    //     //     ['password', $password]
+
+    //     // ])->get();
+
+    //     if ($user == true) {
+    //         return "true";
+    //         return redirect()->intended(RouteServiceProvider::HOME);
+    //     }
+    // }
+
+
     public function store(LoginRequest $request)
     {
+
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::ADMINDASHBOARD);
     }
 
     /**

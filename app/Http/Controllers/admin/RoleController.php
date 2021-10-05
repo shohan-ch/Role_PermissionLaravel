@@ -31,13 +31,41 @@ class RoleController extends Controller
             'name' => $request->name,
         ]);
 
-        $permissions = $request->permission;
+
+        $permissions = $request->permissions;
         foreach ($permissions as $data) {
 
-            $permission = Permission::create([
-                'module_action_id' => $data
+            $role->permissions()->attach($data);
+        }
+
+        // foreach ($permissions as $data) {
+
+        //     $permission = Permission::create([
+        //         'module_id' => $request->module,
+        //         'name'      => $data
+        //     ]);
+        //     $role->permissions()->attach($data);
+        // }
+    }
+
+    public function module_create()
+    {
+        return view('admin.module.create');
+    }
+    public function module_store(Request $request)
+    {
+        $module = Module::create([
+            'name' => $request->name
+        ]);
+
+        $permissions = $request->permissions;
+        // return $permissions;
+
+        foreach ($permissions as $data) {
+            $module->permissions()->create([
+                'module_id' => $module->id,
+                'name' => $data
             ]);
-            $role->permissions()->attach($permission);
         }
     }
 }

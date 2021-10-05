@@ -10,8 +10,8 @@ class Module extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function actions()
+    public function permissions()
     {
-        return $this->hasMany(Module_action::class);
+        return $this->hasMany(Permission::class);
     }
 }

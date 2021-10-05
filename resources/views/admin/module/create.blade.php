@@ -12,8 +12,8 @@
 
 <div class="my-3">
   {{-- {{ dd($modules) }} --}}
-  <h3>Add Role</h3>
-  <a href="{{ route('role.index') }}" class="btn btn-outline-success">Back</a>
+  <h3>Add Module & Permission</h3>
+  {{-- <a href="{{ route('role.index') }}" class="btn btn-outline-success">Back</a> --}}
 </div>
 
 <div class="row">
@@ -23,13 +23,13 @@
     <div class="card card-primary">
       <!-- /.card-header -->
       <!-- form start -->
-      <form action="{{ route('role.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('module.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Module Name</label>
             <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{ old('name') }}"
-              placeholder="Enter a name.">
+              placeholder="Ex User">
             @error('name')
             <p class="text-danger font-weight-bold">{{ $message }}</p>
             @enderror
@@ -37,22 +37,40 @@
 
           <h4>Permissions</h4>
 
-          @foreach ( $modules as $data)
-          <input type="hidden" name="module" value="{{ $data->id }}">
-          <h5 class="mb-2">{{  $data->name}}</h5>
-          @foreach ( $data->permissions as $action)
-
           <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" value="{{ $action->id }}" id="flexCheckDefault"
-              name="permissions[]">
+            <input class="form-check-input" type="checkbox" value="create" id="flexCheckDefault" name="permissions[]">
             <label class="form-check-label" for="flexCheckDefault">
-              {{ $action->name }}
+              create
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="read" id="flexCheckDefault" name="permissions[]">
+            <label class="form-check-label" for="flexCheckDefault">
+              read
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="update" id="flexCheckDefault" name="permissions[]">
+            <label class="form-check-label" for="flexCheckDefault">
+              update
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="delete" id="flexCheckDefault" name="permissions[]">
+            <label class="form-check-label" for="flexCheckDefault">
+              delete
             </label>
           </div>
 
-          @endforeach
 
-          @endforeach
+          {{-- 
+          <div class="form-group">
+            <label for="permissions">Add Extra Permission</label>
+            <input type="text" name="permissions[]" class="form-control">
+          </div> --}}
+
+
+
 
 
           {{-- 

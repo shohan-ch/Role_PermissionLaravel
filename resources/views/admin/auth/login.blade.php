@@ -80,7 +80,7 @@
 
                         </div>
                         <p class="login-card-description">Sign into your account</p>
-                        <form action="{{ route('admin.login') }}" method="post">
+                        <form action="{{ route('login') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
@@ -106,8 +106,7 @@
                                 </label>
                             </div>
 
-                            <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit"
-                                value="Login">
+                            <input id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
 
 
                             <!-- Forgot Password -->

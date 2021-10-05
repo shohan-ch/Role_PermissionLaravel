@@ -97,7 +97,7 @@
         <!-- Menu Footer-->
         <li class="user-footer">
           <div class="pull-right">
-            <form action="{{ route('admin.logout') }}" method="POST">
+            <form action="{{ route('logout') }}" method="POST">
               @csrf
               <div class="text-center">
                 <button type="submit" class="btn btn-info">Sign out</button>

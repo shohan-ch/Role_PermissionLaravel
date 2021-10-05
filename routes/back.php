@@ -8,10 +8,12 @@ use App\Http\Controllers\admin\AdminController;
 
 
 
-Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth:admin']], function () {
-
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin_dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::resource('/user', AdminController::class);
+    Route::get('/dashboard', [AdminController::class, 'dasboard'])->name('admin_dashboard');
     Route::resource('/role', RoleController::class);
+    Route::get('/module',    [RoleController::class, 'module_create'])->name('module.create');
+    Route::post('/module',    [RoleController::class, 'module_store'])->name('module.store');
 });
 
 
