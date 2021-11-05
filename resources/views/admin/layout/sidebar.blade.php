@@ -45,15 +45,6 @@
         </li> --}}
 
       <li class="nav-item">
-        <a href="" class="nav-link">
-          <i class="nav-icon fa fa-list-alt"></i>
-          <p>
-            Categories
-
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
         <a href="{{ route('module.create') }}" class="nav-link">
           <i class="nav-icon fa fa-list-alt"></i>
           <p>
